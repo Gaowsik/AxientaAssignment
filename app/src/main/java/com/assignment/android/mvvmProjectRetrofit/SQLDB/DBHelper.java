@@ -63,7 +63,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void insertArticle(Article article) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_ID,article.getId());
+        values.put(COLUMN_ID, article.getId());
         values.put(COLUMN_TITLE, article.getTitle());
         values.put(COLUMN_DESCRIPTION, article.getDescription());
         values.put(COLUMN_AUTHOR, article.getAuthor());

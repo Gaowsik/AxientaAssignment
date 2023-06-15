@@ -1,24 +1,19 @@
 package com.assignment.android.mvvmProjectRetrofit.ui;
 
 import static com.assignment.android.mvvmProjectRetrofit.Constants.BUNDLE_ARTICLE;
-import static com.assignment.android.mvvmProjectRetrofit.Constants.showInfoAlertDialogNoIcon;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.assignment.android.mvvmProjectRetrofit.ArticleAdapter.ArticleAdapter;
-import com.assignment.android.mvvmProjectRetrofit.Constants;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.assignment.android.mvvmProjectRetrofit.R;
 import com.assignment.android.mvvmProjectRetrofit.ReponseModel.Article;
 import com.assignment.android.mvvmProjectRetrofit.ReponseModel.Source;
+import com.assignment.android.mvvmProjectRetrofit.Utills;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
-
-import java.security.DigestException;
 
 public class ArticleDetailsActivity extends AppCompatActivity {
 
@@ -42,8 +37,7 @@ public class ArticleDetailsActivity extends AppCompatActivity {
 
     }
 
-    private void initializeVariables()
-    {
+    private void initializeVariables() {
         article = new Article();
         ivArticleImage = findViewById(R.id.ivArticleImage);
         tvSourceName = findViewById(R.id.tvSourceName);
@@ -55,15 +49,14 @@ public class ArticleDetailsActivity extends AppCompatActivity {
         tvContent = findViewById(R.id.tvContent);
     }
 
-    private void readBundle(){
+    private void readBundle() {
         if (getIntent().getExtras() != null) {
-            article = (Article) Constants.getBundleObject(getIntent().getExtras(), Article.class, BUNDLE_ARTICLE);
+            article = (Article) Utills.getBundleObject(getIntent().getExtras(), Article.class, BUNDLE_ARTICLE);
         }
     }
 
 
-    private void bindUI()
-    {
+    private void bindUI() {
         Source source = article.getSource();
         if (source != null) {
             tvSourceName.setText(source.getName());

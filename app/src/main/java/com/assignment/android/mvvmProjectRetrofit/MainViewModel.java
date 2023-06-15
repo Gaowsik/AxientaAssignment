@@ -4,7 +4,6 @@ import android.content.Context;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.assignment.android.mvvmProjectRetrofit.ReponseModel.Article;
 import com.assignment.android.mvvmProjectRetrofit.ReponseModel.NewsResponse;
@@ -34,16 +33,12 @@ public class MainViewModel extends ViewModel {
     }
 
     public void deleteDataToDb(Article article) {
-        if(repository.deleteDataFromDB(article)){
+        if (repository.deleteDataFromDB(article)) {
             isDeleted.setValue(true);
             articleLiveData.setValue(repository.getAllDataFromDB());
-        }
-
-        else
-        {
+        } else {
             isDeleted.setValue(false);
         }
-
 
 
     }

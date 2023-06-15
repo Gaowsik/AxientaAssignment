@@ -3,13 +3,11 @@ package com.assignment.android.mvvmProjectRetrofit;
 import android.content.Context;
 
 import androidx.lifecycle.MutableLiveData;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.assignment.android.mvvmProjectRetrofit.ReponseModel.Article;
 import com.assignment.android.mvvmProjectRetrofit.ReponseModel.NewsResponse;
 import com.assignment.android.mvvmProjectRetrofit.Retrofit.GetDataService;
 import com.assignment.android.mvvmProjectRetrofit.Retrofit.RetrofitClientInstance;
-import com.assignment.android.mvvmProjectRetrofit.SQLDB.DBHelper;
 import com.assignment.android.mvvmProjectRetrofit.SQLDB.NewsDataSource;
 
 import java.util.List;

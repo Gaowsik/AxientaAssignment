@@ -1,6 +1,6 @@
 package com.assignment.android.mvvmProjectRetrofit.ui;
 
-import static com.assignment.android.mvvmProjectRetrofit.Constants.showInfoAlertDialogNoIcon;
+import static com.assignment.android.mvvmProjectRetrofit.Utills.showInfoAlertDialogNoIcon;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements ArticleAdapter.Ad
     private void init() {
         initializeVariables();
         setUpProgressDialog();
-        //fetchDataAndInsertIntoDb();
         setUpObservers();
         setUpRecyclerView();
     }

@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.assignment.android.mvvmProjectRetrofit.Constants;
 import com.assignment.android.mvvmProjectRetrofit.R;
 import com.assignment.android.mvvmProjectRetrofit.ReponseModel.Article;
+import com.assignment.android.mvvmProjectRetrofit.Utills;
 import com.assignment.android.mvvmProjectRetrofit.ui.ArticleDetailsActivity;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
@@ -100,7 +101,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
             @Override
             public void onClick(View v) {
                Intent i = new Intent(context, ArticleDetailsActivity.class);
-                i.putExtra(Constants.BUNDLE_ARTICLE, Constants.getObjectAsString(currentItem));
+                i.putExtra(Constants.BUNDLE_ARTICLE, Utills.getObjectAsString(currentItem));
                 context.startActivity(i);
             }
         });
