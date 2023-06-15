@@ -1,5 +1,6 @@
 package com.assignment.android.mvvmProjectRetrofit.ui;
 
+import static com.assignment.android.mvvmProjectRetrofit.Constants.QUERY_VALUE;
 import static com.assignment.android.mvvmProjectRetrofit.Utills.showInfoAlertDialogNoIcon;
 
 import android.app.AlertDialog;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.assignment.android.mvvmProjectRetrofit.ArticleAdapter.ArticleAdapter;
+import com.assignment.android.mvvmProjectRetrofit.BuildConfig;
 import com.assignment.android.mvvmProjectRetrofit.MainViewModel;
 import com.assignment.android.mvvmProjectRetrofit.MainViewModelFactory;
 import com.assignment.android.mvvmProjectRetrofit.R;
@@ -73,18 +75,18 @@ public class MainActivity extends AppCompatActivity implements ArticleAdapter.Ad
             @Override
             public void onChanged(Boolean isDeleted) {
                 if (isDeleted) {
-                    showInfoAlertDialogNoIcon(MainActivity.this, "Alert", "Article has been deleted");
+                    showInfoAlertDialogNoIcon(MainActivity.this, getString(R.string.title_alert), getString(R.string.msg_deleted));
 
                 }
             }
         });
 
-        viewModel.getTasks("bitcoin", "39855b9e16bf4b21aabeaa39806004dd").observe(this, new Observer<NewsResponse>() {
+        viewModel.getTasks(QUERY_VALUE, BuildConfig.API_KEY).observe(this, new Observer<NewsResponse>() {
             @Override
             public void onChanged(NewsResponse newsResponse) {
                 if (newsResponse.getArticles().isEmpty()) {
                     progressDoalog.dismiss();
-                    Toast.makeText(MainActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, R.string.msg_went_wrong, Toast.LENGTH_SHORT).show();
                 } else {
                     viewModel.insertDataToDb(newsResponse.getArticles());
                 }
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements ArticleAdapter.Ad
 
 
     private void setUpProgressDialog() {
-        progressDoalog.setMessage("Loading....");
+        progressDoalog.setMessage(getString(R.string.msg_loading));
         progressDoalog.show();
     }
 
@@ -121,14 +123,14 @@ public class MainActivity extends AppCompatActivity implements ArticleAdapter.Ad
 
     private void handleDelete(final Article article) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Alert")
-                .setMessage("Do you want to delete")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        builder.setTitle(getString(R.string.title_alert))
+                .setMessage(R.string.msg_delete_question)
+                .setPositiveButton(R.string.action_ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         viewModel.deleteDataToDb(article);
                     }
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(R.string.action_cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                     }

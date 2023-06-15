@@ -7,6 +7,14 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="msg_deleted">Article has been deleted</string>
+    <string name="title_alert">Alert</string>
+    <string name="msg_went_wrong">Something went wrong...Please try later!</string>
+    <string name="msg_loading">Loading....</string>
+    <string name="msg_delete_question">Do you want to delete</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
 </resources>

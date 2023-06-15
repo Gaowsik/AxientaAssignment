@@ -9,7 +9,8 @@ import com.google.gson.Gson;
 
 public class Constants {
 
-    public static final String BUNDLE_ARTICLE = "Location";
+    public static final String BUNDLE_ARTICLE = "article";
+    public static final String QUERY_VALUE = "bitcoin";
 
 
 }
