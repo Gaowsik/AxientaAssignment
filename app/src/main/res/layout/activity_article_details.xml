@@ -39,6 +39,7 @@
     <TextView
         android:id="@+id/tvUrl"
         android:layout_width="wrap_content"
+        android:autoLink="web"
         android:layout_height="wrap_content"
         android:text="URL" />
 

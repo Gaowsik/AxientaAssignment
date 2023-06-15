@@ -10,6 +10,7 @@ import com.assignment.android.mvvmProjectRetrofit.ReponseModel.NewsResponse;
 import com.assignment.android.mvvmProjectRetrofit.Retrofit.GetDataService;
 import com.assignment.android.mvvmProjectRetrofit.Retrofit.RetrofitClientInstance;
 import com.assignment.android.mvvmProjectRetrofit.SQLDB.DBHelper;
+import com.assignment.android.mvvmProjectRetrofit.SQLDB.NewsDataSource;
 
 import java.util.List;
 
@@ -21,12 +22,12 @@ public class Repository {
     Context context;
     RecyclerView recyclerView;
     private GetDataService service;
-    private DBHelper dbHelper;
+    private NewsDataSource dataSource;
 
     public Repository(Context applicationContext, RecyclerView recyclerView) {
         context = applicationContext;
         this.recyclerView = recyclerView;
-        dbHelper = new DBHelper(applicationContext);
+        dataSource = new NewsDataSource(applicationContext);
     }
 
     public MutableLiveData<NewsResponse> getTasks(String query, String apiKey) {
@@ -53,20 +54,20 @@ public class Repository {
     public void insertDataToDb(List<Article> articles) {
         final MutableLiveData<List<Article>> articlesLiveData = new MutableLiveData<>();
         for (Article article : articles) {
-            dbHelper.insertArticle(article);
+            dataSource.insertArticle(article);
         }
 
     }
 
     public List<Article> getAllDataFromDB() {
-        List<Article> allData = dbHelper.getAllArticles();
+        List<Article> allData = dataSource.getAllArticles();
         return allData;
 
     }
 
     public Boolean deleteDataFromDB(Article article) {
         boolean isDeleted = false;
-        if (dbHelper.deleteArticle(article)) {
+        if (dataSource.deleteArticle(article)) {
             isDeleted = true;
         } else {
             isDeleted = false;
