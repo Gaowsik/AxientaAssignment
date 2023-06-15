@@ -20,13 +20,11 @@ import retrofit2.Response;
 
 public class Repository {
     Context context;
-    RecyclerView recyclerView;
     private GetDataService service;
     private NewsDataSource dataSource;
 
-    public Repository(Context applicationContext, RecyclerView recyclerView) {
+    public Repository(Context applicationContext) {
         context = applicationContext;
-        this.recyclerView = recyclerView;
         dataSource = new NewsDataSource(applicationContext);
     }
 
@@ -52,7 +50,6 @@ public class Repository {
 
 
     public void insertDataToDb(List<Article> articles) {
-        final MutableLiveData<List<Article>> articlesLiveData = new MutableLiveData<>();
         for (Article article : articles) {
             dataSource.insertArticle(article);
         }

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements ArticleAdapter.Ad
     }
 
     private void initializeVariables() {
-        factory = new MainViewModelFactory(this, recyclerView);
+        factory = new MainViewModelFactory(this);
         viewModel = ViewModelProviders.of(this, factory).get(MainViewModel.class);
         recyclerView = findViewById(R.id.customRecyclerView);
         adapter = new ArticleAdapter(this, this);

@@ -17,8 +17,8 @@ public class MainViewModel extends ViewModel {
     public MutableLiveData<Boolean> isDeleted = new MutableLiveData<>();
 
 
-    public MainViewModel(Context context, RecyclerView recyclerView) {
-        repository = new Repository(context, recyclerView);
+    public MainViewModel(Context context) {
+        repository = new Repository(context);
     }
 
     public MutableLiveData<NewsResponse> getTasks(String query, String apiKey) {

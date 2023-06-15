@@ -7,18 +7,17 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainViewModelFactory extends ViewModelProvider.NewInstanceFactory {
-         RecyclerView recyclerView;
+
         Context context;
 
-        public MainViewModelFactory(Context context, RecyclerView recyclerView) {
-           this.recyclerView=recyclerView;
+        public MainViewModelFactory(Context context) {
            this.context=context;
         }
 
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
             //noinspection unchecked
-            return (T) new MainViewModel(context,recyclerView);
+            return (T) new MainViewModel(context);
         }
 }
 
