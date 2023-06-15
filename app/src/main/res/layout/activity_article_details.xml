@@ -14,44 +14,37 @@
     <TextView
         android:id="@+id/tvSourceName"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Source Name" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvAuthor"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Author" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Title" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvDescription"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvUrl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autoLink="web"
-        android:text="URL" />
+        android:autoLink="web" />
 
     <TextView
         android:id="@+id/tvPublishedAt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Published At" />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/tvContent"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Content" />
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
